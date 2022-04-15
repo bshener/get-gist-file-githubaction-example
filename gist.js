@@ -21,10 +21,10 @@ https.get(`https://api.github.com/gists/${gistID}`, options, (resp) => {
   }
 
   let data = '';
-  resp.on('data', (chunk) => {
+  resp.on('data', (chunk) => {    
     data += chunk;
   });
-
+  console.log(data);
   resp.on('end', () => {
     console.log('Gotten gist successfully from GitHub.')
     let parsed = JSON.parse(data);
