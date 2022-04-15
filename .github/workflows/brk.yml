@@ -12,7 +12,7 @@ jobs:
       id: get
       uses: bshener/gist@master
       with:
-        gistURL: "https://gist.github.com/andymckay/c290f9c904502e98da98e59124610b93" 
+        gistURL: "https://gist.github.com/bshener/857d766309c45645838dbf040d9aea7e" 
     - name: Show Gist contents
       id: run
       run: |
