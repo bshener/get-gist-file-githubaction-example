@@ -22,12 +22,9 @@ https.get(`https://api.github.com/gists/${gistID}`, options, (resp) => {
 
   let data = '';
   resp.on('data', (chunk) => {    
-    console.log("brk1");
-    console.log(chunk);
     data += chunk;
   });
-  console.log("brk2");
-  console.log(data);
+  
   resp.on('end', () => {
     console.log('Gotten gist successfully from GitHub.')
     let parsed = JSON.parse(data);
@@ -36,6 +33,9 @@ https.get(`https://api.github.com/gists/${gistID}`, options, (resp) => {
         process.exit(1)
         return;
     }
+    console.log("brk1");
+    console.log(parsed);
+    console.log("brk2");
     let files = Object.values(parsed.files);
     if (files.length != 1) {
         console.log("Error: looking for one and only one file.");
