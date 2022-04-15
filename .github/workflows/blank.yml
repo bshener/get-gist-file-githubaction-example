@@ -1,0 +1,22 @@
+# This is a basic workflow to help you get started with Actions
+
+name: CI
+
+# Controls when the workflow will run
+on:
+  # Triggers the workflow on push or pull request events but only for the main branch
+  workflow_dispatch:    
+  
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Get Gist
+      id: get
+      uses: andymckay/get-gist-action@master
+      with:
+        gistURL: "https://gist.github.com/andymckay/c290f9c904502e98da98e59124610b93" 
+    - name: Show Gist contents
+      id: run
+      run: |
+        cat ${{ steps.get.outputs.file }}
